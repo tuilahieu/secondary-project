@@ -8,7 +8,7 @@ if (isset($_GET["id"])) {
     $sql = "UPDATE loaisanpham SET TenLoaiSanPham  = '$TenLoaiSanPham' WHERE MaLoaiSanPham = '$id'";
 
     if (mysqli_query($connection, $sql)) {
-        echo "<div class='list'>Sửa tên loại sản phẩm thành công. <a href='/qlyLoaiSP/index.php?mod=panel'>Quay lại</a></div>";
+        echo "<div class='list'>Sửa tên loại sản phẩm thành công. <a href='./?mod=panel'>Quay lại</a></div>";
         exit;
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($connect);
@@ -35,7 +35,7 @@ if (isset($_GET["id"])) {
 </div>
 <div class="list">
 <?php
-echo '<form action="/qlyLoaiSP/index.php?mod=update&id='.$id.'" method="POST" >';
+echo '<form action="./?mod=update&id='.$id.'" method="POST" >';
 ?>
     <p>Tên loại sản phẩm </p>
     <?php
@@ -43,7 +43,7 @@ echo '<form action="/qlyLoaiSP/index.php?mod=update&id='.$id.'" method="POST" >'
     ?>
                 
             <p><input type='submit' name="editloaisp" value='Thêm sản phẩm' onclick=" return Check()" />
-            <a href='/qlyLoaiSP/index.php?mod=panel'>Quay lại</a></p>
+            <a href='./?mod=panel'>Quay lại</a></p>
     </form>
 </div>
 <?php
