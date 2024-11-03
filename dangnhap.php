@@ -1,8 +1,14 @@
 <?php
 include('header.php');
 if (isset($_SESSION['username']) && $_SESSION['username']){
-    echo'Bạn đã đăng nhập rồi.';
-    echo'<a href="/index.php">Click để quay về trang chủ</a>';
+    if(isset($_SESSION['is_admin']) &&  $_SESSION['is_admin']) {
+        echo "<script>window.location.href = './adminpanel';</script>";
+        exit;
+    }
+    echo "<script>window.location.href = './';</script>";
+    exit;
+    
+    
 } else {
     //Xử lý đăng nhập
 if (isset($_POST['dangnhap'])) 
@@ -12,7 +18,7 @@ if (isset($_POST['dangnhap']))
     $username = addslashes($_POST['TenDangNhap']);
     $password = addslashes($_POST['MatKhau']);
     //Kiểm tra tên đăng nhập có tồn tại không
-    $sql = "SELECT TenDangNhap, MatKhau FROM taikhoan WHERE TenDangNhap='$username'";
+    $sql = "SELECT TenDangNhap, MatKhau, Quyen FROM taikhoan WHERE TenDangNhap='$username'";
     $query = mysqli_query($connection, $sql);
     if ($query == NULL) 
     {        echo "Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
@@ -21,6 +27,7 @@ if (isset($_POST['dangnhap']))
      
     //Lấy mật khẩu trong database ra
     $row = mysqli_fetch_array($query);
+    $is_admin = $row['Quyen'];
      
     //So sánh 2 mật khẩu có trùng khớp hay không
     if ($password != $row['MatKhau']) {
@@ -30,7 +37,9 @@ if (isset($_POST['dangnhap']))
      
     //Lưu tên đăng nhập
     $_SESSION['username'] = $username;
+    $_SESSION['is_admin'] =  $is_admin;
     ChangeURL("../index.php");
+    
     
 }
 ?>

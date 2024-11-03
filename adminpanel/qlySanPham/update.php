@@ -25,7 +25,7 @@ if (isset($_GET["id"])) {
                 MaSanPham = '$id'";
 
             if (mysqli_query($connection, $sql)) {
-                echo "<div class='list'>Cập nhật sản phẩm thành công. <a href='/qlySanPham'>Quay lại</a></div>";
+                echo "<div class='list'>Cập nhật sản phẩm thành công. <a href='./'>Quay lại</a></div>";
                 exit;
             } else {
                 echo "Error: " . $sql . "<br>" . mysqli_error($connect);
@@ -50,15 +50,15 @@ if (isset($_GET["id"])) {
     <div class="center">
         <div id="ban">
             <a id="ba" href="/index.php">Trang chủ</a> > 
-            <a id="ba" href="/">Admin Panel</a> > 
-            <a id="ba" href="/qlySanPham/index.php?mod=panel">Quản lý sản phẩm</a> > 
+            <a id="ba" href="../">Admin Panel</a> > 
+            <a id="ba" href="./">Quản lý sản phẩm</a> > 
             <font color="#008744">Cập nhật sản phẩm</font>
         </div>
     </div>
 </div>
 <div class="list">
 <?php
-echo '<form action="/qlySanPham/index.php?mod=update&id='.$id.'" method="POST" >';
+echo '<form action="./?mod=update&id='.$id.'" method="POST" >';
 ?>
     <table>
         <tr>
@@ -114,8 +114,8 @@ echo '<form action="/qlySanPham/index.php?mod=update&id='.$id.'" method="POST" >
             echo'<p><textarea name="Mota" id="Mota" rows="10" cols="50">'.$row['MoTa'].'</textarea></p>';
             ?>
           
-            <p><input type='submit' name="updatesp" value='Thêm sản phẩm' onclick=" return Check()" />
-            <a href='/qlySanPham/index.php?mod=panel'>Quay lại</a></p>
+            <p><input type='submit' name="updatesp" value='Cập nhật' onclick=" return Check()" />
+            <a href='./'>Quay lại</a></p>
     </form>
 </div>
 <?php

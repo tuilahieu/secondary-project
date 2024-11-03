@@ -42,7 +42,7 @@ if (mysqli_num_rows($query) === 0) {
      
     //Lưu tên đăng nhập
     $_SESSION['username'] = $username;
-    ChangeURL("../index.php");
+    ChangeURL("./");
     
 }
 ?>

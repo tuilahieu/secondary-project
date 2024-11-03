@@ -1,5 +1,5 @@
 <div id="vien"><div class="center"><div id="ban">
-<a id="ba" href="/index.php">Trang chủ</a> > <a id="ba" href="/">Admin Panel</a> > 
+<a id="ba" href="../">Trang chủ</a> > <a id="ba" href="./">Admin Panel</a> > 
 <font color="#008744">Quản lý sản phẩm</font></div></div></div>
 <div class="list"><a href="./?mod=add"><button class="button">Thêm sản phẩm</button></a></div>
 <?php
@@ -30,6 +30,8 @@
         echo number_format($row['GiaSanPham'], 0).'₫<br>';
         echo 'Số lượng hàng: '.$row['SoLuong'].' - Ngày nhập: '.$row['NgayNhap'].'';
         echo '<br/>Thương hiệu: '.$hsx['TenHangSanXuat'].' - Loại: '.$lsp['TenLoaiSanPham'].'';
+        $trang_thai = $row['BiXoa'] ? 'SP TREO' : 'SP CÒN';
+        echo '<br/>Trạng thái: '. $trang_thai;
         echo '<br/><img width="100" height="100" src="/images/'.$row['HinhURL'].'"><br/>';
         echo '<div class="tool"><a href="./?mod=update&id='.$row['MaSanPham'].'"><i class="far fa-edit"></i></a>  ';
         if($row['BiXoa'] == 1) {

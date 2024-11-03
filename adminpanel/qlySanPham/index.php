@@ -3,6 +3,12 @@ require "../includes/header.php";
 $mod = "panel";
 if(isset($_GET["mod"]))
     $mod = $_GET["mod"];
+
+    // fix bug if not exist session => return home
+if(!isset($_SESSION['username'])) {
+    header('location: /');
+    exit;
+}
     
 $username = $_SESSION['username'];
 $sql = "SELECT * FROM taikhoan WHERE TenDangNhap='$username'";
@@ -26,10 +32,11 @@ switch ($mod) {
         include "./restore.php";
         break;
     default:
-        include __DIR__ . "/error.php";
+        include '../includes/404.php';
         break;
 }
 } else {
     echo "Ban khong co quyen vao day :3";
+    exit();
 }
 ?>

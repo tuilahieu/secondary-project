@@ -1,13 +1,13 @@
 <?php
 
-session_start();
+include('./includes/function.php');
 
 $username = $_SESSION['username'];
 $sql = "SELECT * FROM taikhoan WHERE TenDangNhap='$username'";
 $query = mysqli_query($connection, $sql);
 $row = mysqli_fetch_array($query);
 if ($row['Quyen'] == 1) {
-    ?>
+     ?>
     <div id="vien"><div class="center"><div id="ban">
     <a id="ba" href="/index.php">Trang chủ</a> > 
     <font color="#008744">Admin Panel</font></div></div></div>  
@@ -20,8 +20,6 @@ if ($row['Quyen'] == 1) {
 <?php
 
 } else {
-    // header("Location: /dangnhap.php");
-    // var_dump($row);
     exit(header("Location: /"));
 }
 ?>

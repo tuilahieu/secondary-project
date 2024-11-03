@@ -85,8 +85,8 @@ if (isset($_POST['themsp'])) {
 <div id="vien">
     <div class="center">
         <div id="ban">
-            <a id="ba" href="/index.php">Trang chủ</a> > 
-            <a id="ba" href="/">Admin Panel</a> > 
+            <a id="ba" href="./">Trang chủ</a> > 
+            <a id="ba" href="#">Admin Panel</a> > 
             <a id="ba" href="./?mod=panel">Quản lý sản phẩm</a> > 
             <font color="#008744">Thêm sản phẩm</font>
         </div>
@@ -140,6 +140,6 @@ if (isset($_POST['themsp'])) {
         <p>Hình sản phẩm:</p>
         <p><input id="hinh" type='file' name='Hinhsp' /></p>
         <p><input type='submit' name="themsp" value='Thêm sản phẩm' onclick=" return Check()" />
-        <a href='/qlySanPham/index.php?mod=panel'>Quay lại</a></p>
+        <a href='./'>Quay lại</a></p>
     </form>
 </div>
