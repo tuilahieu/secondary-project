@@ -24,11 +24,11 @@
     }
     echo'<br/>';
     echo'Họ tên: '.$row['HoTen'].' - SDT: '.$row['DienThoai'].' - Ngày sinh: '.$row['NgaySinh'].' - Email: '.$row['Email'].' <Br/>Địa chỉ: '.$row['DiaChi'].'        ';
-    echo '<div class="tool"><a href="/qlyTaiKhoan/index.php?mod=sua&id='.$row['MaTaiKhoan'].'"><i class="far fa-edit"></i></a>  ';
+    echo '<div class="tool"> ';
     if($row['Xoa'] == 1) {
-        echo '<a href="/qlyTaiKhoan/index.php?mod=khoiphuc&id='.$row['MaTaiKhoan'].'"><i class="fas fa-trash-restore-alt"></i></a>';
+        echo '<a href="./?mod=khoiphuc&id='.$row['MaTaiKhoan'].'"><i class="fa-solid fa-unlock"></i></a>';
     } else {
-        echo '<a href="/qlyTaiKhoan/index.php?mod=xoa&id='.$row['MaTaiKhoan'].'"><i class="far fa-trash-alt"></i></a>';
+        echo '<a href="./?mod=cam&id='.$row['MaTaiKhoan'].'"><i class="fa-solid fa-ban"></i></a>';
     }
     echo '</div></div>';
 }

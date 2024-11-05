@@ -18,7 +18,7 @@ if (isset($_POST['dangnhap']))
     $username = addslashes($_POST['TenDangNhap']);
     $password = addslashes($_POST['MatKhau']);
     //Kiểm tra tên đăng nhập có tồn tại không
-    $sql = "SELECT TenDangNhap, MatKhau, Quyen FROM taikhoan WHERE TenDangNhap='$username'";
+    $sql = "SELECT TenDangNhap, MatKhau, Quyen, Xoa FROM taikhoan WHERE TenDangNhap='$username'";
     $query = mysqli_query($connection, $sql);
     if ($query == NULL) 
     {        echo "Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
@@ -28,10 +28,16 @@ if (isset($_POST['dangnhap']))
     //Lấy mật khẩu trong database ra
     $row = mysqli_fetch_array($query);
     $is_admin = $row['Quyen'];
+    $status = $row['Xoa'];
      
     //So sánh 2 mật khẩu có trùng khớp hay không
     if ($password != $row['MatKhau']) {
         echo "Mật khẩu không đúng. Vui lòng nhập lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
+        exit;
+    }
+    
+    if($status) {
+        echo "Tai khoan cua ban bi cam !";
         exit;
     }
      

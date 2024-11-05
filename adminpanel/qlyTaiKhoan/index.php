@@ -1,5 +1,9 @@
 <?php
 require "../includes/header.php";
+require "../includes/function.php";
+
+check_admin();
+
 $mod = "list";
 if(isset($_GET["mod"]))
     $mod = $_GET["mod"];
@@ -11,19 +15,16 @@ $row = mysqli_fetch_array($query);
 if ($row['Quyen'] == 1) {
 switch ($mod) {
     case 'list': 
-        include "../qlyTaiKhoan/list.php";
+        include "./list.php";
         break;
-    case 'sua': 
-        include "../qlyTaiKhoan/sua.php";
-        break;
-    case 'xoa': 
-        include "../qlyTaiKhoan/xoa.php";
+    case 'cam': 
+        include "./cam.php";
         break;
     case 'khoiphuc': 
-        include "../qlyTaiKhoan/khoiphuc.php";
+        include "./khoiphuc.php";
         break;
     default:
-        include "../qlyTaiKhoan/error.php";
+        include "./error.php";
         break;
 }
 } else {

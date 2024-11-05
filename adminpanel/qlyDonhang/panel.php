@@ -1,5 +1,5 @@
 <div id="vien"><div class="center"><div id="ban">
-<a id="ba" href="/index.php">Trang chủ</a> > <a id="ba" href="/adminPanel.php">Admin Panel</a> > 
+<a id="ba" href="/index.php">Trang chủ</a> > <a id="ba" href="../">Admin Panel</a> > 
 <font color="#008744">Quản lý đơn đặt hàng</font></div></div></div>
 <?php
 $sql = "SELECT * FROM dondathang";
@@ -14,7 +14,7 @@ while ($row = mysqli_fetch_array($query)) {
     $qrtt = mysqli_query($connection, $tt);
     $tinhtrang = mysqli_fetch_array($qrtt);
     echo ' - Tình trạng: '.$tinhtrang['TenTinhTrang'].'';
-    echo '<br/> >> <a href="../qlyDonhang/index.php?mod=chitiet&id='.$row['MaDonDatHang'].'">Chi tiết</a>';
+    echo '<br/><p style="color: green"> >> <a style="color: green" href="./?mod=chitiet&id='.$row['MaDonDatHang'].'">Chi tiết</a></p>';
     echo '</div>';
 
 }

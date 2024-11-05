@@ -18,15 +18,7 @@ if(isset($_GET['id'])) {
     $query5 = mysqli_query($connection, $sql5);
     $row5 = mysqli_fetch_array($query5);
 
-    echo'<div id="vien">
-    <div class="center">
-        <div id="ban">
-            <a id="ba" href="../">Trang chủ</a> > 
-            <font color="#008744">Chi tiết đơn hàng mã '.$row['MaDonDatHang'].'</font>
-        </div>
-    </div>
-</div>';
-    echo'<div class="list"><div class="ban"><h2>Chi tiết đơn hàng</h2></div></div>';
+    echo'<div class="list"><div class="ban"><h2>Hoá đơn hàng ' .$row['MaDonDatHang'] . ' </h2></div></div>';
     echo '<div class="center"><div class="list">';
     echo 'Mã đơn đặt hàng: '.$row['MaDonDatHang'].'';
     echo '</div><div class="list">';
@@ -43,15 +35,7 @@ if(isset($_GET['id'])) {
     echo '</div><div class="list">';
     echo 'Tình trạng: '.$row5['TenTinhTrang'].'';
     echo '</div><div class="list">';
-    echo '<a class="submit" href="./?mod=giaohang&id='.$row['MaDonDatHang'].'">Giao hàng</a>';
-    echo ' <a class="submit" href="./?mod=danggiao&id='.$row['MaDonDatHang'].'">Đang giao hàng</a>';
-    echo ' <a class="submit" href="./?mod=chuagiaohang&id='.$row['MaDonDatHang'].'">Chưa giao hàng</a>';
-    echo ' <a class="submit1" href="./?mod=thanhtoan&id='.$row['MaDonDatHang'].'">Thanh toán</a>';
-    echo ' <a class="submit1" href="./?mod=chuathanhtoan&id='.$row['MaDonDatHang'].'">Chưa thanh toán</a>';
-    echo ' <a class="submit2" href="./?mod=huy&id='.$row['MaDonDatHang'].'">Hủy đơn hàng</a>';
-    echo ' <a class="submit3" href="./?mod=in&id='.$row['MaDonDatHang'].'">In hóa đơn</a>';
-    echo '</div><div class="list">';
-    echo 'Các sản phẩm: ';
+    echo '<br>Các sản phẩm: ';
     $stt = 1;
     // cac san pham trong don hang
     $sql4 = "SELECT * FROM chitietdondathang WHERE MaDonDatHang = '$id'";
@@ -66,7 +50,7 @@ if(isset($_GET['id'])) {
         $stt = $stt + 1;
     }
     echo '</div>';
-
+    echo "<script>window.print()</script>";
 
 
 
