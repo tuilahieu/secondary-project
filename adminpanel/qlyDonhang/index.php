@@ -1,5 +1,7 @@
 <?php
 require "../includes/header.php";
+include('../includes/function.php');
+check_admin();
 $mod = "panel";
 if(isset($_GET["mod"]))
     $mod = $_GET["mod"];

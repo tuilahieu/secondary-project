@@ -1,14 +1,12 @@
 <?php
 require "../includes/header.php";
+include('../includes/function.php');
+check_admin();
+
 $mod = "panel";
 if(isset($_GET["mod"]))
     $mod = $_GET["mod"];
 
-    // fix bug if not exist session => return home
-if(!isset($_SESSION['username'])) {
-    header('location: /');
-    exit;
-}
     
 $username = $_SESSION['username'];
 $sql = "SELECT * FROM taikhoan WHERE TenDangNhap='$username'";

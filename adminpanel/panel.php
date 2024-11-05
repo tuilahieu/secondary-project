@@ -1,10 +1,5 @@
 <?php
 
-if(!isset($_SESSION)) {
-    session_start();
-}
-
-include('./includes/function.php');
 
 $username = $_SESSION['username'];
 $sql = "SELECT * FROM taikhoan WHERE TenDangNhap='$username'";
