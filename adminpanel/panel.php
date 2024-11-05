@@ -1,5 +1,9 @@
 <?php
 
+if(!isset($_SESSION)) {
+    session_start();
+}
+
 include('./includes/function.php');
 
 $username = $_SESSION['username'];
@@ -20,6 +24,6 @@ if ($row['Quyen'] == 1) {
 <?php
 
 } else {
-    exit(header("Location: /"));
+    // exit(header("Location: /"));
 }
 ?>

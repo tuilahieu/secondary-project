@@ -10,7 +10,7 @@ if(isset($_GET["mod"]))
 
 switch ($mod) {
     case 'panel': 
-        include "../adminpanel/panel.php";
+        include "./panel.php";
         break;
     default:
         include "../error.php";
